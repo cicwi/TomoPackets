@@ -1,7 +1,10 @@
 #include <pybind11/functional.h>
 #include <pybind11/pybind11.h>
 #include <pybind11/stl.h>
+#include <pybind11/stl_bind.h>
 namespace py = pybind11;
+
+PYBIND11_MAKE_OPAQUE(std::vector<float>);
 
 #include <tomop/tomop.hpp>
 
@@ -106,4 +109,6 @@ PYBIND11_MODULE(py_tomop, m) {
         .def(py::init<std::string, int32_t>())
         .def(py::init<std::string, int32_t, int32_t>())
         .def("send", &tomop::publisher::send);
+
+    py::bind_vector<std::vector<float>>(m, "VectorFloat", py::buffer_protocol());
 }
