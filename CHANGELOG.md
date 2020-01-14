@@ -15,6 +15,9 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 - Add `Parameter{Bool,Float,Enum}Packet`, `TrackerPacket` and `BenchmarkPacket`.
 - Add support for `std::vector<std::string>` fields.
 
+### Changed
+- Changed `std::vector<float>` components to use `VectorFloat` in Python bindings (breaking).
+
 ## [1.0.0-rc2] - 2018-11-12
 
 ### Added
